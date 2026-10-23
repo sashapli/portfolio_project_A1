@@ -48,8 +48,8 @@ public class TileControll : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         {
             Derect = new Vector3Int(Mathf.RoundToInt(CurentPos.x), Mathf.RoundToInt(CurentPos.y));
             currentHovered = TileEliment.Singalton.PosEliment
-                .Where(t => t.position == new Vector3(startPos.x + Derect.x, startPos.y + Derect.y))
-                .Select(t => t.GetComponent<TileControll>())
+                .Where(t => t.grapPosl.position == new Vector3(startPos.x + Derect.x, startPos.y + Derect.y))
+                .Select(t => t.grapPosl.GetComponent<TileControll>())
                 .FirstOrDefault();
             transform.DOMove(startPos + Derect, 0.5f);
             currentHovered.transform.DOMove(currentHovered.startPos - Derect,0.5f);
